@@ -7,6 +7,9 @@ if (!empty($_POST['username'] && !empty($_POST['password']))) {
 
   if ($usuario == 'admin' && $senha == 'admin') {
     $_SESSION['username'] = $usuario;
+    if (!empty($_POST['tema'])) {
+      setcookie('tema', htmlspecialchars($_POST['tema']));
+    }
     header('Location: home.php');
   } else {
     echo "Usuário ou senha inválidos";

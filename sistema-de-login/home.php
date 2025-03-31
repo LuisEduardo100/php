@@ -6,6 +6,20 @@ if (empty($_SESSION['username'])) {
   exit;
 }
 
+if (!empty($_COOKIE['tema'])) {
+  $tema = $_COOKIE['tema'];
+
+  if ($tema == 'default') {
+    $background_cor = "#daad99";
+    $text_color = "#ccc";
+  } elseif ($tema == 'dark') {
+    $background_cor = "black";
+    $text_color = "#dddddd";
+  } else {
+    $background_cor = "white";
+    $text_color = "black";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +30,9 @@ if (empty($_SESSION['username'])) {
   <title>Document</title>
 </head>
 
-<body>
+<body style="background-color: <?= $background_cor ?>; color: <?= $text_color ?>">
   <h1>Seja bem-vindo, <?= $_SESSION['username'] ?>!</h1>
-  <a href="logout.php">Logout</a>
+  <a style="color: inherit" href="logout.php">Logout</a>
 </body>
 
 </html>
