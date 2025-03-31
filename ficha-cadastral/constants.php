@@ -1,0 +1,4 @@
+<?php 
+  define('IDADE_APOSENTADORIA_MASC', 65);
+  define('IDADE_APOSENTADORIA_FEM', 60);
+?>
